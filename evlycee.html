@@ -113,7 +113,7 @@
     }
 
     /* Style bouton spécial */
-    .btn-math {
+    .btn {
       display: inline-block;
       background: #5e6f81;
       color: white;
@@ -124,71 +124,7 @@
       cursor: pointer;
       text-decoration: none;
     }
-       .btn-math:hover {
-      background: #384551;
-    }
-
-    .btn-dd:hover {
-      background: #384551;
-    }
-     .btn-dd {
-      display: inline-block;
-      background: #5e6f81;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn-dd.hover {
-      background: #384551;
-    }
-     .btn-dm {
-      display: inline-block;
-      background: #5e6f81;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn-dm:hover {
-      background: #384551;
-    }
-     .btn-lc {
-      display: inline-block;
-      background: #5e6f81;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn-lc:hover {
-      background: #384551;
-    }
-        .btn-prob {
-      display: inline-block;
-      background: #5e6f81;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn-prob:hover {
+       .btn:hover {
       background: #384551;
     }
          button {
@@ -197,12 +133,41 @@
     a {
   margin: 10px;
     }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #5e6f81;
-      font-size: 10px;
-    }
+}
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .nav-item {
+    width: 90%;
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+}
+.hero {
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 768px) {
+  .hero {
+    padding: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .btn {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+  }
+}
   </style>
 </head>
 
@@ -256,20 +221,15 @@
     <div>
       <h2>Liste des Series </h2>
     <ul>
-        <a href="evserie-s.html" class="btn-math"><strong>🧪 Series Scientifique</strong></a>
+        <a href="evserie-s.html" class="btn"><strong>🧪 Series Scientifique</strong></a>
         
-        <a href="evserie-l.html" class="btn-dd"><strong>📖 Series Littéraires</strong></a>
+        <a href="evserie-l.html" class="btn"><strong>📖 Series Littéraires</strong></a>
         
-        <a href="evserie-t.html" class="btn-dm"><strong>⚙️ Series Techniques</strong></a>
+        <a href="evserie-t.html" class="btn"><strong>⚙️ Series Techniques</strong></a>
        
-        <a href="evserie-g.html" class="btn-lc"><strong>💼 Series Gestion</strong></a></li>
+        <a href="evserie-g.html" class="btn"><strong>💼 Series Gestion</strong></a></li>
       </ul>
     </div>
   </section>
-
-  <!-- FOOTER -->
-  <footer>
-    © 2025 Xam Xam - Créé par Serigne Mor Gueye
-  </footer>
 </body>
 </html>
