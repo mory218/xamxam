@@ -113,7 +113,7 @@
     }
 
     /* Style bouton spécial */
-    .btn-math {
+    .btn {
       display: inline-block;
       background: #000000;
       color: white;
@@ -124,87 +124,51 @@
       cursor: pointer;
       text-decoration: none;
     }
-     .btn-math:hover {
+     .btn:hover {
       background: #383f45;
     }
 
-    .btn-dd:hover {
-      background: #383f45;
-    }
-     .btn-dd {
-      display: inline-block;
-      background: #000000;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn-dd.hover {
-      background: #383f45;
-    }
-     .btn-dm {
-      display: inline-block;
-      background: #000000;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn-dm:hover {
-      background: #383f45;
-    }
-     .btn-lc {
-      display: inline-block;
-      background: #000000;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn-lc:hover {
-      background: #383f45;
-    }
-        .btn-prob {
-      display: inline-block;
-      background: #000000;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn-prob:hover {
-      background: #383f45;
-    }
+    
      button {
       margin: 8px; /* espace autour de chaque bouton */
     }
     a {
   margin: 10px;
     }
+}
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
 
-   footer {
-  margin-top: auto;
-  background-color: #222;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-  font-size: 14px;
+  .nav-item {
+    width: 90%;
+    text-align: center;
+  }
+}
+@media (max-width: 768px) {
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+}
+.hero {
+  background-size: cover;
+  background-position: center;
+}
+@media (max-width: 768px) {
+  .hero {
+    padding: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .btn {
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+  }
 }
   </style>
 </head>
@@ -260,15 +224,15 @@
       <h1>Evaluation Seconde Littéraires (L)</h1>
          <h2>📖Français</h2>      
     <ul>
-        <a href="dev versification.pdf" class="btn-math"><strong>DEVOIR DE VERSIFICATION</strong></a>
-        <a href="serie-l.html" class="btn-dd"><strong>🧪Science Physique</strong></a>
-        <a href="serie-t.html" class="btn-dm"><strong>📖Français</strong></a>
+        <a href="dev versification.pdf" class="btn"><strong>DEVOIR DE VERSIFICATION</strong></a>
+        <a href="serie-l.html" class="btn"><strong>🧪Science Physique</strong></a>
+        <a href="serie-t.html" class="btn"><strong>📖Français</strong></a>
     </ul>
          <h2>🌏Histoire et Geographie</h2>        
     <ul>
-        <a href="PHILOSOPHIE ET DOUTE (XAM XAM).pdf" class="btn-math"><strong>PHILOSOPHIE ET DOUTE</strong></a>
-        <a href="serie-l.html" class="btn-dd"><strong>🧪Science Physique</strong></a>
-        <a href="serie-t.html" class="btn-dm"><strong>📖Français</strong></a>
+        <a href="PHILOSOPHIE ET DOUTE (XAM XAM).pdf" class="btn"><strong>PHILOSOPHIE ET DOUTE</strong></a>
+        <a href="serie-l.html" class="btn"><strong>🧪Science Physique</strong></a>
+        <a href="serie-t.html" class="btn"><strong>📖Français</strong></a>
     </ul>
     </div>
   </section>
@@ -277,15 +241,15 @@
 <h1>Premiere Littéraire (L)</h1>
          <h2>📖Français</h2>      
     <ul>
-        <a href="PHILOSOPHIE ET DOUTE (XAM XAM).pdf" class="btn-math"><strong>PHILOSOPHIE ET DOUTE</strong></a>
-        <a href="serie-l.html" class="btn-dd"><strong>🧪Science Physique</strong></a>
-        <a href="serie-t.html" class="btn-dm"><strong>📖Français</strong></a>
+        <a href="PHILOSOPHIE ET DOUTE (XAM XAM).pdf" class="btn"><strong>PHILOSOPHIE ET DOUTE</strong></a>
+        <a href="serie-l.html" class="btn"><strong>🧪Science Physique</strong></a>
+        <a href="serie-t.html" class="btn"><strong>📖Français</strong></a>
     </ul>
          <h2>🌏Histoire et Geographie</h2>        
     <ul>
-        <a href="PHILOSOPHIE ET DOUTE (XAM XAM).pdf" class="btn-math"><strong>PHILOSOPHIE ET DOUTE</strong></a>
-        <a href="serie-l.html" class="btn-dd"><strong>🧪Science Physique</strong></a>
-        <a href="serie-t.html" class="btn-dm"><strong>📖Français</strong></a>
+        <a href="PHILOSOPHIE ET DOUTE (XAM XAM).pdf" class="btn"><strong>PHILOSOPHIE ET DOUTE</strong></a>
+        <a href="serie-l.html" class="btn"><strong>🧪Science Physique</strong></a>
+        <a href="serie-t.html" class="btn"><strong>📖Français</strong></a>
     </ul>
     </div>
   </section>
@@ -294,28 +258,24 @@
 <h1>Terminal L </h1>
          <h2>📝Philosophie</h2>
       <ul>
-        <a href="PHILOSOPHIE ET DOUTE (XAM XAM).pdf" class="btn-math"><strong>PHILOSOPHIE ET DOUTE</strong></a>
-        <a href="serie-l.html" class="btn-dd"><strong>🧪Science Physique</strong></a>
-        <a href="serie-t.html" class="btn-dm"><strong>📖Français</strong></a>
+        <a href="PHILOSOPHIE ET DOUTE (XAM XAM).pdf" class="btn"><strong>PHILOSOPHIE ET DOUTE</strong></a>
+        <a href="serie-l.html" class="btn"><strong>🧪Science Physique</strong></a>
+        <a href="serie-t.html" class="btn"><strong>📖Français</strong></a>
        </ul>
         
          <h2>📖Français</h2>      
     <ul>
-        <a href="PHILOSOPHIE ET DOUTE (XAM XAM).pdf" class="btn-math"><strong>PHILOSOPHIE ET DOUTE</strong></a>
-        <a href="serie-l.html" class="btn-dd"><strong>🧪Science Physique</strong></a>
-        <a href="serie-t.html" class="btn-dm"><strong>📖Français</strong></a>
+        <a href="PHILOSOPHIE ET DOUTE (XAM XAM).pdf" class="btn"><strong>PHILOSOPHIE ET DOUTE</strong></a>
+        <a href="serie-l.html" class="btn"><strong>🧪Science Physique</strong></a>
+        <a href="serie-t.html" class="btn"><strong>📖Français</strong></a>
     </ul>
          <h2>🌏Histoire et Geographie</h2>        
     <ul>
-        <a href="PHILOSOPHIE ET DOUTE (XAM XAM).pdf" class="btn-math"><strong>PHILOSOPHIE ET DOUTE</strong></a>
-        <a href="serie-l.html" class="btn-dd"><strong>🧪Science Physique</strong></a>
-        <a href="serie-t.html" class="btn-dm"><strong>📖Français</strong></a>
+        <a href="PHILOSOPHIE ET DOUTE (XAM XAM).pdf" class="btn"><strong>PHILOSOPHIE ET DOUTE</strong></a>
+        <a href="serie-l.html" class="btn"><strong>🧪Science Physique</strong></a>
+        <a href="serie-t.html" class="btn"><strong>📖Français</strong></a>
     </ul>
     </div>
   </section>
-  <!-- FOOTER -->
-  <footer>
-    © 2025 Xam Xam - Créé par Serigne Mor Gueye
-  </footer>
 </body>
 </html>
