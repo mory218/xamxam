@@ -1,318 +1,677 @@
   <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cours Lycée- Xam Xam</title>
+  <title>Cours Séries Scientifiques - Xam Xam</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      margin: 3px;
-      font-family: "Inter", sans-serif;
-      background: #fff;
+    /* ========== BASE ========== */
+    * { 
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #8b5cf6;
+      --accent: #ec4899;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --gray: #64748b;
+      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", "Inter", sans-serif;
+      background: url("WhatsApp Image 2025-10-07 à 18.49.10_303cfb0d.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: rgba(248, 250, 252, 0.85);
+      z-index: -1;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    /* ========== HEADER ========== */
     header {
-      padding: 20px 10px;
-      background: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 20px 40px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      position: sticky;
+      top: 0;
+      z-index: 5000;
+      transition: all 0.3s ease;
+    }
+
+    header:hover {
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
     }
 
     header img {
-      height: 80px;
-    }
-      
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      gap: 20px;
+      height: 65px;
+      transition: transform 0.3s ease;
     }
 
-    nav ul li {
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ========== NAV PC ========== */
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15px;
+      margin: 0;
+      padding: 0;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav li {
       position: relative;
     }
 
     nav a, nav button {
-      color: #000;
-      font-size: 18px;
       background: none;
       border: none;
-      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
       cursor: pointer;
+      padding: 12px 20px;
+      border-radius: 8px;
+      color: var(--dark);
+      transition: all 0.3s ease;
+      font-family: "Poppins", sans-serif;
+      white-space: nowrap;
+      display: inline-block;
+      min-width: fit-content;
     }
 
     nav a:hover, nav button:hover {
-      text-decoration: underline;
+      background: var(--gradient-1);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
     }
 
-    /* SOUS-MENUS */
-    nav ul li ul {
+    nav a.active {
+      background: var(--gradient-1);
+      color: var(--white);
+    }
+
+    /* ========== SOUS-MENUS PC ========== */
+    .submenu {
       display: none;
       position: absolute;
-      background: #fff;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      padding: 10px;
-      top: 100%;
+      top: calc(100% + 10px);
       left: 0;
-      min-width: 180px;
-      z-index: 1000;
+      background: var(--white);
+      min-width: 200px;
+      padding: 12px 0;
+      box-shadow: var(--shadow-lg);
+      border-radius: 12px;
+      z-index: 999;
+      animation: fadeInDown 0.3s ease;
+      overflow: hidden;
     }
 
-    nav ul li:hover ul {
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .submenu li {
+      margin: 0;
+    }
+
+    .submenu a {
+      display: block;
+      padding: 12px 20px;
+      color: var(--dark);
+      border-radius: 0;
+      font-size: 14px;
+    }
+
+    .submenu a:hover {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: var(--white);
+      transform: translateX(5px);
+    }
+
+    .dropdown:hover .submenu {
       display: block;
     }
 
-    nav ul li ul li {
-      margin: 5px 0;
-    }
-
-    /* HERO */
-   body {
-  margin: 5px;
-  font-family: "Inter", sans-serif;
-  background: url("WhatsApp Image 2025-10-07 à 18.49.10_303cfb0d.jpg") no-repeat center center fixed;
-  background-size: cover;
-}
-
-.hero {
-  color: #000;
-  text-align: left;
-  min-height: 90px;
-  display: flex;
-  align-items: start;
-  justify-content: left;
-  padding: 80px;
-  background: rgba(255, 255, 255, 0.8); /* légère transparence */
-  border-radius: 20px;
-  margin: 20px;
-}
-
-    .hero h2 {
-      font-size: 24px;
-      max-width: 1000px;
-      background: rgb(255, 255, 255);
-      padding: 20px;
-      border-radius: 20px;
-      line-height: 2;
-    }
-   
-    ul li {
-      background: #f9f9f9;
-      margin: 10px 0;
-      padding: 15px;
+    /* ========== BURGER ========== */
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
       border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
     }
 
-    /* Style bouton spécial */
-    .btn-math {
+    .burger:hover {
+      background: var(--light);
+    }
+
+    .burger span {
+      width: 28px;
+      height: 3px;
+      background: var(--dark);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    .burger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .burger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .burger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* ========== PAGE HEADER ========== */
+    .page-header {
+      background: var(--gradient-1);
+      padding: 80px 40px;
+      text-align: center;
+      color: var(--white);
+      margin-bottom: 60px;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .page-header p {
+      font-size: 1.2rem;
+      opacity: 0.95;
+      font-weight: 300;
+    }
+
+    /* ========== CONTENT ========== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 40px 80px;
+    }
+
+    /* ========== COURS SECTIONS ========== */
+    .cours-section {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(99, 102, 241, 0.1);
+    }
+
+    .cours-section:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .cours-section h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .cours-section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 30px 0 20px 0;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cours-section h2:first-of-type {
+      margin-top: 0;
+    }
+
+    .cours-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 15px;
+    }
+
+    .cours-list li {
+      margin: 0;
+    }
+
+    /* ========== BOUTONS ========== */
+    .btn-math, .btn-dd, .btn-dm, .btn-lc, .btn-prob {
       display: inline-block;
-      background: #000000;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
+      padding: 14px 28px;
+      border-radius: 12px;
       font-size: 16px;
+      font-weight: 600;
       cursor: pointer;
       text-decoration: none;
-    }
-     .btn-math:hover {
-      background: #383f45;
-    }
-
-    .btn-dd:hover {
-      background: #383f45;
-    }
-     .btn-dd {
-      display: inline-block;
-      background: #000000;
-      color: white;
-      padding: 10px 20px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+      background: var(--gradient-1);
+      color: var(--white);
       border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      text-decoration: none;
+      font-family: "Poppins", sans-serif;
+      width: 100%;
+      text-align: center;
     }
 
-    .btn-dd.hover {
-      background: #383f45;
-    }
-     .btn-dm {
-      display: inline-block;
-      background: #000000;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      text-decoration: none;
+    .btn-math:hover, .btn-dd:hover, .btn-dm:hover, .btn-lc:hover, .btn-prob:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+      background: var(--gradient-2);
     }
 
-    .btn-dm:hover {
-      background: #383f45;
-    }
-     .btn-lc {
-      display: inline-block;
-      background: #000000;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      text-decoration: none;
-    }
-
-    .btn-lc:hover {
-      background: #383f45;
-    }
-     button {
-      margin: 8px; /* espace autour de chaque bouton */
-    }
-    a {
-  margin: 10px;
-    }
-  
+    /* ========== FOOTER ========== */
     footer {
-  margin-top: auto;
-  background-color: #cfcbc0;
-  color: #000;
   text-align: center;
-  padding: 10px 0;
+      padding: 30px 20px;
+      background: var(--gradient-1);
+      color: var(--white);
   font-size: 14px;
+      margin-top: 60px;
+    }
+
+    /* ========== 📱 VERSION TELEPHONE ========== */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      header img {
+        height: 50px;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        padding: 20px 0;
+        box-shadow: var(--shadow);
+        border-radius: 0 0 20px 20px;
+      }
+
+      nav.active {
+        display: block;
+        animation: slideDown 0.3s ease;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 5px;
+        align-items: stretch;
+        padding: 0 20px;
+      }
+
+      nav a, nav button {
+        width: 100%;
+        text-align: left;
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      .submenu {
+        position: static;
+        box-shadow: none;
+        padding: 0;
+        margin-top: 5px;
+        background: var(--light);
+        border-radius: 10px;
+        display: none;
+      }
+
+      .submenu.show {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      .submenu a {
+        padding: 12px 20px;
+      }
+
+      .dropdown:hover .submenu {
+        display: none;
+      }
+
+      .page-header {
+        padding: 50px 20px;
+      }
+
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .page-header p {
+        font-size: 1rem;
+      }
+
+      .container {
+        padding: 0 20px 40px;
+      }
+
+      .cours-section {
+        padding: 25px 20px;
+        margin-bottom: 30px;
+      }
+
+      .cours-section h1 {
+        font-size: 1.8rem;
+      }
+
+      .cours-section h2 {
+        font-size: 1.3rem;
+      }
+
+      .cours-list {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .btn-math, .btn-dd, .btn-dm, .btn-lc, .btn-prob {
+        padding: 16px;
+        font-size: 15px;
+      }
 }
   </style>
 </head>
 
 <body>
+  <!-- ========== HEADER ========== -->
   <header>
     <img src="Black Illustrated School Logo_20250915_033236_0000.png" alt="Logo Xam Xam">
-    <nav>
+
+    <div class="burger" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav id="nav">
       <ul>
         <li><a href="index.html">Accueil</a></li>
-        <li>
-          <button>Cours ▾</button>
-          <ul>
+
+        <li class="dropdown">
+          <button class="drop-btn">Cours ▾</button>
+          <ul class="submenu">
             <li><a href="ccollege.html">Collège</a></li>
             <li><a href="clycée.html">Lycée</a></li>
           </ul>
         </li>
-        <li>
-          <button>Devoirs ▾</button>
-          <ul>
+
+        <li class="dropdown">
+          <button class="drop-btn">Devoirs ▾</button>
+          <ul class="submenu">
             <li><a href="evcollege.html">Collège</a></li>
             <li><a href="evlycee.html">Lycée</a></li>
           </ul>
         </li>
-        <li>
-          <button>Bac▾</button>
-          <ul>
+
+        <li class="dropdown">
+          <button class="drop-btn">Bac ▾</button>
+          <ul class="submenu">
             <li><a href="bac-s.html">Bac Scientifiques</a></li>
             <li><a href="bac-l.html">Bac Littéraires</a></li>
             <li><a href="bac-t.html">Bac Technique</a></li> 
             <li><a href="bac-g.html">Bac Gestion</a></li>
-            <li><a href="bac-etranger.html">Bac Etranger</a></li>
+            <li><a href="bac-étrangers.html">Bac Étrangers</a></li>
             </ul>
         </li>
-        <li>
-          <button>Exercices ▾</button>
-          <ul>
+
+        <li class="dropdown">
+          <button class="drop-btn">Exercices ▾</button>
+          <ul class="submenu">
             <li><a href="eprimaire.html">Primaire</a></li>
             <li><a href="ecollege.html">Collège</a></li>
             <li><a href="elycee.html">Lycée</a></li>
            </ul>
+        </li>
+
            <li><a href="informatique.html">Informatique</a></li>
         </ul>
-      </li>
     </nav>
   </header> 
+
+  <!-- ========== PAGE HEADER ========== -->
+  <div class="page-header">
+    <h1>Cours Séries Scientifiques</h1>
+    <p>Accédez à tous les cours pour les séries scientifiques (S, S1, S2)</p>
  </div>
 
+  <!-- ========== CONTENU ========== -->
+  <div class="container">
+    <!-- SECONDE S -->
+    <section class="cours-section">
+      <h1>Seconde Science (S)</h1>
+      
+      <h2>🔢 Mathématiques</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
+      </ul>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
- <h1>Seconde Science (S)</h1>
-         <h2>🔢Mathématiques</h2>
-      <ul>
-         <a href="?" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+      <h2>🧪 Science Physique</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
       </ul>
-         <h2>🧪Science Physique</h2>
-      <ul>
-         <a href="?" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+
+      <h2>🧬 Science de la vie et de la terre</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
       </ul>
-      <h2>🧬Science de la vie de la terre</h2>
-      <ul>
-        <a href="?" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
-      </ul>
-    </div>
   </section>
-   <section class="hero">
-    <div>
-      <h1>Premier Science Exacte (S1)</h1>
-         <h2>🔢Mathématiques</h2>
-      <ul>
-        <a href="?" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+
+    <!-- PREMIERE S1 -->
+    <section class="cours-section">
+      <h1>Première Science Exacte (S1)</h1>
+      
+      <h2>🔢 Mathématiques</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
       </ul>
-    </div>
   </section>
-   <section class="hero">
-    <div>
-      <h2>Premier Science Experimental (S2)</h2>
-    <h2>🧪Science Physique</h2>
-      <ul>
-         <a href="?" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+
+    <!-- PREMIERE S2 -->
+    <section class="cours-section">
+      <h1>Première Science Expérimentale (S2)</h1>
+      
+      <h2>🧪 Science Physique</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
        </ul>
-    <h2>🧬Science de la vie et de la terre</h2>
-      <ul>
-        <a href="?" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+
+      <h2>🧬 Science de la vie et de la terre</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
       </ul>
-     <h2>🔢Mathématiques</h2>
-      <ul>
-          <a href="?" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+
+      <h2>🔢 Mathématiques</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
       </ul>   
-    </div>
   </section>
-     <section class="hero">
-    <div>
-    <h1>Terminal Science Exacte (S1)</h1>
-      <ul>
-      <h2>🔢Mathematique</h2>
-        <a href="?" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
-    </div>
+
+    <!-- TERMINALE S1 -->
+    <section class="cours-section">
+      <h1>Terminale Science Exacte (S1)</h1>
+      
+      <h2>🔢 Mathématiques</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
+      </ul>
   </section>
-   <section class="hero">
-    <div>
-    <h1>Terminal Science Experimental (S2)</h1>
-      <h2>🧬Science de la vie et de la terre</h2>
-      <ul>
+
+    <!-- TERMINALE S2 -->
+    <section class="cours-section">
+      <h1>Terminale Science Expérimentale (S2)</h1>
+      
+      <h2>🧬 Science de la vie et de la terre</h2>
+      <ul class="cours-list">
+        <li>
         <a href="FASCICULE SVT (XAM XAM).pdf" class="btn-math"><strong>🧬 FASCICULE SVT (XAM XAM)</strong></a>
+        </li>
       </ul>
-      <h2>🔢Mathematique</h2>
-      <ul>
-        <a href="07_Cours_fonctions_sinus_cosinus.pdf" class="btn-math"><strong>🔢COURS FONCTION SINUS COSINUS</strong></a>
-        <a href="0Annale maths S2 VISA BAC .pdf" class="btn-math"><strong>🔢Annale maths S2 VISA BAC</strong></a>
-        <a href="FORMULES  STATISTIQUES S.pdf" class="btn-math"><strong>🔢FORMULES  STATISTIQUES S</strong></a>
-        <a href="Mathématiques_Généralité_sur_les_Fonction_Numériques_d’une_Variable.pdf" class="btn-math"><strong>🔢Généralité sur les Fonction Numériques</strong></a>
-      <h2>🧪Science Physique</h2>
-      <ul>
-        <a href="Fascicule CHIMIE.pdf" class="btn-dd"><strong>🧪Fascicule CHIMIE(TS1/TS2)</strong></a>
-        <a href="FASCICULE PHYSIQUE.pdf" class="btn-dd"><strong>🧪FASCICULE PHYSIQUE(TS1/TS2)</strong></a>
-        <a href="PHYSIQUE Terminale S Tome .pdf" class="btn-dd"><strong>🧪PHYSIQUE TERMINAL S TOME</strong></a>
-        <a href="Physique TS_P8-P15.pdf" class="btn-dd"><strong>🧪COURS PHYSIQUE DE P8 A P15</strong>
-        <a href="Résumé sur la cinétique chimie.pdf" class="btn-lc"><strong>🧪Résumé sur la cinétique chimie</strong>
+
+      <h2>🔢 Mathématiques</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="07_Cours_fonctions_sinus_cosinus.pdf" class="btn-math"><strong>🔢 COURS FONCTION SINUS COSINUS</strong></a>
+        </li>
+        <li>
+          <a href="0Annale maths S2 VISA BAC .pdf" class="btn-math"><strong>🔢 Annale maths S2 VISA BAC</strong></a>
+        </li>
+        <li>
+          <a href="FORMULES  STATISTIQUES S.pdf" class="btn-math"><strong>🔢 FORMULES STATISTIQUES S</strong></a>
+        </li>
+        <li>
+          <a href="Mathématiques_Généralité_sur_les_Fonction_Numériques_d'une_Variable.pdf" class="btn-math"><strong>🔢 Généralité sur les Fonction Numériques</strong></a>
+        </li>
       </ul>
+
+      <h2>🧪 Science Physique</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="Fascicule CHIMIE.pdf" class="btn-dd"><strong>🧪 Fascicule CHIMIE (TS1/TS2)</strong></a>
+        </li>
+        <li>
+          <a href="FASCICULE PHYSIQUE.pdf" class="btn-dd"><strong>🧪 FASCICULE PHYSIQUE (TS1/TS2)</strong></a>
+        </li>
+        <li>
+          <a href="PHYSIQUE Terminale S Tome .pdf" class="btn-dd"><strong>🧪 PHYSIQUE TERMINAL S TOME</strong></a>
+        </li>
+        <li>
+          <a href="Physique TS_P8-P15.pdf" class="btn-dd"><strong>🧪 COURS PHYSIQUE DE P8 A P15</strong></a>
+        </li>
+        <li>
+          <a href="Résumé sur la cinétique chimie.pdf" class="btn-lc"><strong>🧪 Résumé sur la cinétique chimie</strong></a>
+        </li>
+      </ul>
+    </section>
     </div>
-  </section>
+
+  <!-- ========== JS ========== -->
+  <script>
+    const burger = document.getElementById("burger");
+    const nav = document.getElementById("nav");
+
+    burger.addEventListener("click", () => {
+      nav.classList.toggle("active");
+      burger.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".drop-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        btn.nextElementSibling.classList.toggle("show");
+      });
+    });
+
+    // Header scroll effect
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > 100) {
+        document.querySelector('header').style.boxShadow = '0 6px 30px rgba(0, 0, 0, 0.15)';
+      } else {
+        document.querySelector('header').style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+      }
+      lastScroll = currentScroll;
+    });
+  </script>
+
 </body>
 </html>

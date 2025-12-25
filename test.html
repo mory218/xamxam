@@ -1,9 +1,9 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bac Séries Littéraires - Xam Xam</title>
+  <title>Cours Lycée - Xam Xam</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -35,20 +35,10 @@
     body {
       margin: 0;
       font-family: "Poppins", "Inter", sans-serif;
-      background: url("WhatsApp Image 2025-11-08 à 23.08.47_e7e6ab5f.jpg") no-repeat center center fixed;
-      background-size: cover;
+      background: var(--light);
       color: var(--dark);
       line-height: 1.6;
       overflow-x: hidden;
-      position: relative;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: rgba(248, 250, 252, 0.85);
-      z-index: -1;
     }
 
     a {
@@ -89,11 +79,10 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 15px;
+      gap: 8px;
       margin: 0;
       padding: 0;
       align-items: center;
-      flex-wrap: wrap;
     }
 
     nav li {
@@ -106,14 +95,11 @@
       font-size: 15px;
       font-weight: 500;
       cursor: pointer;
-      padding: 12px 20px;
+      padding: 10px 18px;
       border-radius: 8px;
       color: var(--dark);
       transition: all 0.3s ease;
       font-family: "Poppins", sans-serif;
-      white-space: nowrap;
-      display: inline-block;
-      min-width: fit-content;
     }
 
     nav a:hover, nav button:hover {
@@ -241,66 +227,60 @@
       padding: 0 40px 80px;
     }
 
-    /* ========== COURS SECTIONS ========== */
-    .cours-section {
+    .series-section {
       background: var(--white);
       border-radius: 20px;
-      padding: 40px;
+      padding: 50px 40px;
       margin-bottom: 40px;
       box-shadow: var(--shadow);
       transition: all 0.3s ease;
       border: 1px solid rgba(99, 102, 241, 0.1);
     }
 
-    .cours-section:hover {
+    .series-section:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-lg);
       border-color: var(--primary);
     }
 
-    .cours-section h1 {
+    .series-section h1 {
       font-size: 2.2rem;
       font-weight: 700;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       background: var(--gradient-1);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    .cours-section h2 {
+    .series-section h2 {
       font-size: 1.5rem;
       font-weight: 600;
-      margin: 30px 0 20px 0;
+      margin-bottom: 30px;
       color: var(--dark);
-      display: flex;
-      align-items: center;
-      gap: 10px;
     }
 
-    .cours-section h2:first-of-type {
-      margin-top: 0;
-    }
-
-    .cours-list {
+    .series-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
       list-style: none;
       padding: 0;
       margin: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 15px;
     }
 
-    .cours-list li {
+    .series-grid li {
       margin: 0;
     }
 
     /* ========== BOUTONS ========== */
-    .btn-math, .btn-dd, .btn-dm, .btn-lc, .btn-prob {
-      display: inline-block;
-      padding: 14px 28px;
-      border-radius: 12px;
-      font-size: 16px;
+    .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 30px;
+      border-radius: 15px;
+      font-size: 18px;
       font-weight: 600;
       cursor: pointer;
       text-decoration: none;
@@ -310,14 +290,18 @@
       color: var(--white);
       border: none;
       font-family: "Poppins", sans-serif;
-      width: 100%;
+      min-height: 80px;
       text-align: center;
     }
 
-    .btn-math:hover, .btn-dd:hover, .btn-dm:hover, .btn-lc:hover, .btn-prob:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
       background: var(--gradient-2);
+    }
+
+    .btn strong {
+      font-weight: 600;
     }
 
     /* ========== FOOTER ========== */
@@ -430,29 +414,31 @@
         padding: 0 20px 40px;
       }
 
-      .cours-section {
-        padding: 25px 20px;
+      .series-section {
+        padding: 30px 20px;
         margin-bottom: 30px;
       }
 
-      .cours-section h1 {
+      .series-section h1 {
         font-size: 1.8rem;
       }
 
-      .cours-section h2 {
+      .series-section h2 {
         font-size: 1.3rem;
       }
 
-      .cours-list {
+      .series-grid {
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 20px;
       }
 
-      .btn-math, .btn-dd, .btn-dm, .btn-lc, .btn-prob {
-        padding: 16px;
-        font-size: 15px;
+      .btn {
+        width: 100%;
+        padding: 18px 25px;
+        font-size: 16px;
+        min-height: 70px;
       }
-}
+    }
   </style>
 </head>
 
@@ -475,7 +461,7 @@
           <button class="drop-btn">Cours ▾</button>
           <ul class="submenu">
             <li><a href="ccollege.html">Collège</a></li>
-            <li><a href="clycée.html">Lycée</a></li>
+            <li><a href="clycée.html" class="active">Lycée</a></li>
           </ul>
         </li>
 
@@ -492,10 +478,10 @@
           <ul class="submenu">
             <li><a href="bac-s.html">Bac Scientifiques</a></li>
             <li><a href="bac-l.html">Bac Littéraires</a></li>
-            <li><a href="bac-t.html">Bac Technique</a></li> 
+            <li><a href="bac-t.html">Bac Technique</a></li>
             <li><a href="bac-g.html">Bac Gestion</a></li>
             <li><a href="bac-étrangers.html">Bac Étrangers</a></li>
-            </ul>
+          </ul>
         </li>
 
         <li class="dropdown">
@@ -504,49 +490,54 @@
             <li><a href="eprimaire.html">Primaire</a></li>
             <li><a href="ecollege.html">Collège</a></li>
             <li><a href="elycee.html">Lycée</a></li>
-           </ul>
+          </ul>
         </li>
 
-           <li><a href="informatique.html">Informatique</a></li>
-        </ul>
+        <li><a href="informatique.html">Informatique</a></li>
+      </ul>
     </nav>
-  </header> 
+  </header>
 
   <!-- ========== PAGE HEADER ========== -->
   <div class="page-header">
-    <h1>Bac Séries Littéraires</h1>
-    <p>Accédez à tous les Bac pour les séries littéraires (L)</p>
- </div>
+    <h1>Cours Lycée</h1>
+    <p>Choisissez votre série pour accéder aux cours correspondants</p>
+  </div>
 
   <!-- ========== CONTENU ========== -->
   <div class="container">
-      <!-- BAC L -->
-    <section class="cours-section">
-      <h1>BAC Serie Littéraires</h1>
-      
-      <h2>📖 Français</h2>
-      <ul class="cours-list">
+    <section class="series-section">
+      <h1>Liste des Séries</h1>
+      <h2>Sélectionnez votre série</h2>
+      <ul class="series-grid">
         <li>
-          <a href="?" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+          <a href="cserie-s.html" class="btn">
+            <strong>🧪 Séries Scientifiques</strong>
+          </a>
+        </li>
+        <li>
+          <a href="cserie-l.html" class="btn">
+            <strong>📖 Séries Littéraires</strong>
+          </a>
+        </li>
+        <li>
+          <a href="cserie-t.html" class="btn">
+            <strong>⚙️ Séries Techniques</strong>
+          </a>
+        </li>
+        <li>
+          <a href="cserie-g.html" class="btn">
+            <strong>💼 Séries Gestion</strong>
+          </a>
         </li>
       </ul>
-
-      <h2>🌏 Histoire et Géographie</h2>
-      <ul class="cours-list">
-        <li>
-          <a href="HG 2010.pdf" class="btn-math"><strong>BAC HG 2010</strong></a>
-        </li>
-      </ul>
-
-      <h2>📝 Philosophie</h2>
-      <ul class="cours-list">
-        <li>
-          <a href="?" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
-        </li>
-       </ul>
     </section>
-    </div>
+  </div>
 
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    © 2025 Xam Xam - Créé par Serigne Mor Gueye
+  </footer>
 
   <!-- ========== JS ========== -->
   <script>
@@ -579,3 +570,4 @@
 
 </body>
 </html>
+

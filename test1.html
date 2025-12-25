@@ -1,9 +1,9 @@
-   <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bac Séries Littéraires - Xam Xam</title>
+  <title>Cours Collège - Xam Xam</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@
     body {
       margin: 0;
       font-family: "Poppins", "Inter", sans-serif;
-      background: url("WhatsApp Image 2025-11-08 à 23.08.47_e7e6ab5f.jpg") no-repeat center center fixed;
+      background: url("WhatsApp Image 2025-10-06 à 07.22.56_f0b414a2.jpg") no-repeat center center fixed;
       background-size: cover;
       color: var(--dark);
       line-height: 1.6;
@@ -89,11 +89,10 @@
     nav ul {
       list-style: none;
       display: flex;
-      gap: 15px;
+      gap: 8px;
       margin: 0;
       padding: 0;
       align-items: center;
-      flex-wrap: wrap;
     }
 
     nav li {
@@ -106,14 +105,11 @@
       font-size: 15px;
       font-weight: 500;
       cursor: pointer;
-      padding: 12px 20px;
+      padding: 10px 18px;
       border-radius: 8px;
       color: var(--dark);
       transition: all 0.3s ease;
       font-family: "Poppins", sans-serif;
-      white-space: nowrap;
-      display: inline-block;
-      min-width: fit-content;
     }
 
     nav a:hover, nav button:hover {
@@ -212,7 +208,7 @@
       transform: rotate(-45deg) translate(7px, -7px);
     }
 
-    /* ========== PAGE HEADER ========== */
+    /* ========== PAGE CONTENT ========== */
     .page-header {
       background: var(--gradient-1);
       padding: 80px 40px;
@@ -234,7 +230,6 @@
       font-weight: 300;
     }
 
-    /* ========== CONTENT ========== */
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -286,13 +281,10 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 15px;
     }
 
     .cours-list li {
-      margin: 0;
+      margin: 15px 0;
     }
 
     /* ========== BOUTONS ========== */
@@ -310,8 +302,6 @@
       color: var(--white);
       border: none;
       font-family: "Poppins", sans-serif;
-      width: 100%;
-      text-align: center;
     }
 
     .btn-math:hover, .btn-dd:hover, .btn-dm:hover, .btn-lc:hover, .btn-prob:hover {
@@ -443,16 +433,12 @@
         font-size: 1.3rem;
       }
 
-      .cours-list {
-        grid-template-columns: 1fr;
-        gap: 15px;
-      }
-
       .btn-math, .btn-dd, .btn-dm, .btn-lc, .btn-prob {
+        width: 100%;
+        text-align: center;
         padding: 16px;
-        font-size: 15px;
       }
-}
+    }
   </style>
 </head>
 
@@ -474,7 +460,7 @@
         <li class="dropdown">
           <button class="drop-btn">Cours ▾</button>
           <ul class="submenu">
-            <li><a href="ccollege.html">Collège</a></li>
+            <li><a href="ccollege.html" class="active">Collège</a></li>
             <li><a href="clycée.html">Lycée</a></li>
           </ul>
         </li>
@@ -495,7 +481,7 @@
             <li><a href="bac-t.html">Bac Technique</a></li> 
             <li><a href="bac-g.html">Bac Gestion</a></li>
             <li><a href="bac-étrangers.html">Bac Étrangers</a></li>
-            </ul>
+          </ul>
         </li>
 
         <li class="dropdown">
@@ -504,7 +490,7 @@
             <li><a href="eprimaire.html">Primaire</a></li>
             <li><a href="ecollege.html">Collège</a></li>
             <li><a href="elycee.html">Lycée</a></li>
-           </ul>
+          </ul>
         </li>
 
            <li><a href="informatique.html">Informatique</a></li>
@@ -514,39 +500,151 @@
 
   <!-- ========== PAGE HEADER ========== -->
   <div class="page-header">
-    <h1>Bac Séries Littéraires</h1>
-    <p>Accédez à tous les Bac pour les séries littéraires (L)</p>
+    <h1>Cours Collège</h1>
+    <p>Accédez à tous les cours pour les classes de 6ème, 5ème, 4ème et 3ème</p>
  </div>
 
   <!-- ========== CONTENU ========== -->
   <div class="container">
-      <!-- BAC L -->
+    <!-- COURS 6EME -->
     <section class="cours-section">
-      <h1>BAC Serie Littéraires</h1>
+      <h1>Cours (6ème)</h1>
       
-      <h2>📖 Français</h2>
+        <h2>🧬 Science de la vie et de la terre</h2>
       <ul class="cours-list">
         <li>
-          <a href="?" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+          <a href="FASCICULE SVT COURS 6 ième.pdf" class="btn-math"><strong>🧬 FASCICULE SVT COURS 6ème</strong></a>
         </li>
       </ul>
 
-      <h2>🌏 Histoire et Géographie</h2>
+      <h2>🔢 Mathématiques</h2>
       <ul class="cours-list">
         <li>
-          <a href="HG 2010.pdf" class="btn-math"><strong>BAC HG 2010</strong></a>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
         </li>
       </ul>
 
-      <h2>📝 Philosophie</h2>
+      <h2>📚 Français</h2>
       <ul class="cours-list">
         <li>
-          <a href="?" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
         </li>
-       </ul>
+      </ul>
+
+      <h2>🌍 Histoire et Géographie</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
+      </ul>
+  </section>
+
+    <!-- COURS 5EME -->
+    <section class="cours-section">
+      <h1>Cours (5ème)</h1>
+      
+      <h2>🧬 Science de la vie et de la terre</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="FASCICULE SVT COURS 5 ième.pdf" class="btn-math"><strong>🧬 FASCICULE SVT COURS 5ème</strong></a>
+        </li>
+      </ul>
+
+      <h2>📚 Français</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
+      </ul>
+
+      <h2>🌍 Histoire et Géographie</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
+      </ul>
+  </section>
+
+    <!-- COURS 4EME -->
+    <section class="cours-section">
+      <h1>Cours (4ème)</h1>
+      
+          <h2>🧬 Science de la vie et de la terre</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="FASCICULE SVT COURS 4 ième.pdf" class="btn-math"><strong>🧬 FASCICULE SVT COURS 4ème</strong></a>
+        </li>
+      </ul>
+
+      <h2>🧪 Physique et Chimie</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
+      </ul>
+
+     <h2>🔢 Mathématiques</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
+      </ul>
+
+      <h2>📚 Français</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
+      </ul>
+
+      <h2>🌍 Histoire et Géographie</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
+      </ul>
+  </section>
+
+    <!-- COURS 3EME -->
+    <section class="cours-section">
+      <h1>Cours (3ème)</h1>
+      
+    <h2>🧬 Science de la vie et de la terre</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="FASCICULE SVT COURS 3 IEME.pdf" class="btn-math"><strong>🧬 FASCICULE SVT COURS 3ème</strong></a>
+        </li>
+      </ul>
+
+      <h2>🧪 Physique et Chimie</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
+      </ul>
+
+    <h2>🔢 Mathématiques</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
+      </ul>
+
+    <h2>📚 Français</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
+      </ul>
+
+      <h2>🌍 Histoire et Géographie</h2>
+      <ul class="cours-list">
+        <li>
+          <a href="#" class="btn-math"><strong>PAS ENCORE DISPONIBLE</strong></a>
+        </li>
+      </ul>
     </section>
     </div>
-
 
   <!-- ========== JS ========== -->
   <script>

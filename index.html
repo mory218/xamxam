@@ -1,184 +1,681 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Xam Xam - Plateforme éducative</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
   <style>
-    body {
-      margin: 3px;
-      font-family: "Inter", sans-serif;
-      background: #fff;
+    /* ========== BASE ========== */
+    * { 
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #8b5cf6;
+      --accent: #ec4899;
+      --dark: #1e293b;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --gray: #64748b;
+      --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    body {
+      margin: 0;
+      font-family: "Poppins", "Inter", sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    /* ========== HEADER ========== */
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 10px 30px;
-      background: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 20px 40px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 5000;
+      transition: all 0.3s ease;
+    }
+
+    header:hover {
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.12);
     }
 
     header img {
-      height: 80px;
+      height: 65px;
+      transition: transform 0.3s ease;
     }
 
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    /* ========== NAV PC ========== */
     nav ul {
       list-style: none;
+      display: flex;
+      gap: 15px;
       margin: 0;
       padding: 0;
-      display: flex;
-      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    nav ul li {
+    nav li {
       position: relative;
     }
 
     nav a, nav button {
-      text-decoration: none;
-      color: #000;
-      font-size: 18px;
       background: none;
       border: none;
+      font-size: 15px;
+      font-weight: 500;
       cursor: pointer;
+      padding: 12px 20px;
+      border-radius: 8px;
+      color: var(--dark);
+      transition: all 0.3s ease;
+      font-family: "Poppins", sans-serif;
+      white-space: nowrap;
+      display: inline-block;
+      min-width: fit-content;
     }
 
     nav a:hover, nav button:hover {
-      text-decoration: underline;
+      background: var(--gradient-1);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
     }
 
-    /* Sous-menus */
-    nav ul li ul {
+    nav a.active {
+      background: var(--gradient-1);
+      color: var(--white);
+    }
+
+    /* ========== SOUS-MENUS PC ========== */
+    .submenu {
       display: none;
       position: absolute;
-      background: #fff;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-      padding: 10px;
-      top: 100%;
+      top: calc(100% + 10px);
       left: 0;
-      min-width: 100px;
-      z-index: 1000;
+      background: var(--white);
+      min-width: 200px;
+      padding: 12px 0;
+      box-shadow: var(--shadow-lg);
+      border-radius: 12px;
+      z-index: 999;
+      animation: fadeInDown 0.3s ease;
+      overflow: hidden;
     }
 
-    nav ul li:hover ul {
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .submenu li {
+      margin: 0;
+    }
+
+    .submenu a {
+      display: block;
+      padding: 12px 20px;
+      color: var(--dark);
+      border-radius: 0;
+      font-size: 14px;
+    }
+
+    .submenu a:hover {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: var(--white);
+      transform: translateX(5px);
+    }
+
+    .dropdown:hover .submenu {
       display: block;
     }
 
-    nav ul li ul li {
-      margin: 5px 0;
+    /* ========== BURGER ========== */
+    .burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
     }
 
-    /* Hero */
-.hero {
-  position: relative;
-  min-height: 300px;
-  display: flex;
-  align-items: start;
-  justify-content: center;
-  padding: 120px;
-  color: #000;
-  text-align: left;
-  overflow: hidden;
-}
+    .burger:hover {
+      background: var(--light);
+    }
 
-.video-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-}
+    .burger span {
+      width: 28px;
+      height: 3px;
+      background: var(--dark);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
 
-.hero-content {
-  position: relative;
-  z-index: 1;
-}
+    .burger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
 
+    .burger.active span:nth-child(2) {
+      opacity: 0;
+    }
 
-     
-    footer {
+    .burger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    /* ========== HERO VIDEO ========== */
+    .hero {
+      position: relative;
+      height: 85vh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .video-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(99, 102, 241, 0.85) 0%, rgba(139, 92, 246, 0.85) 100%);
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
       text-align: center;
-      padding: 10px;
-      background: #f5f3f3;
-      font-size: 10px;
+      color: var(--white);
+      padding: 40px;
+      max-width: 800px;
+      animation: fadeInUp 1s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      opacity: 0.95;
+      font-weight: 300;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border: none;
+      font-family: "Poppins", sans-serif;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: var(--white);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+    }
+
+    /* ========== FEATURES SECTION ========== */
+    .features {
+      padding: 80px 40px;
+      background: var(--white);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      background: var(--gradient-1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--gray);
+      margin-bottom: 60px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(99, 102, 241, 0.1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient-1);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+    }
+
+    .feature-card h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--dark);
+    }
+
+    .feature-card p {
+      color: var(--gray);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ========== 📱 VERSION TELEPHONE ========== */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      header img {
+        height: 50px;
+      }
+
+      .burger {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        padding: 20px 0;
+        box-shadow: var(--shadow);
+        border-radius: 0 0 20px 20px;
+      }
+
+      nav.active {
+        display: block;
+        animation: slideDown 0.3s ease;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 5px;
+        align-items: stretch;
+        padding: 0 20px;
+      }
+
+      nav a, nav button {
+        width: 100%;
+        text-align: left;
+        padding: 15px;
+        border-radius: 10px;
+      }
+
+      .submenu {
+        position: static;
+        box-shadow: none;
+        padding: 0;
+        margin-top: 5px;
+        background: var(--light);
+        border-radius: 10px;
+        display: none;
+      }
+
+      .submenu.show {
+        display: block;
+        animation: fadeIn 0.3s ease;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+
+      .submenu a {
+        padding: 12px 20px;
+      }
+
+      .dropdown:hover .submenu {
+        display: none;
+      }
+
+      .hero {
+        height: 70vh;
+        min-height: 500px;
+      }
+
+      .hero-content {
+        padding: 30px 20px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-content p {
+        font-size: 1.1rem;
+      }
+
+      .cta-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .features {
+        padding: 60px 20px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
     }
   </style>
 </head>
+
 <body>
-   <div class="macbook-pro">
-      <div class="div">
-        <header class="overlap">
-          <img
-            class="black-illustrated"
-            src="Black Illustrated School Logo.png"
-            alt="Logo Xam Xam - Plateforme éducative"
-          />
-          <header>
-    <img src="Black Illustrated School Logo_20250915_033236_0000.png"alt="Logo Xam Xam" >
-        <nav>
-      <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li>
-          <button>Cours ▾</button>
-          <ul>
-            <li><a href="ccollege.html">Collège</a></li>
-            <li><a href="clycée.html">Lycée</a></li>
-          </ul>
-        </li>
-        <li>
-          <button>Devoirs ▾</button>
-          <ul>
-            <li><a href="evcollege.html">Collège</a></li>
-            <li><a href="evlycee.html">Lycée</a></li>
-          </ul>
-        </li>
-        <li>
-          <button>Bac▾</button>
-          <ul>
-            <li><a href="bac-s.html">Bac Scientifiques</a></li>
-            <li><a href="bac-l.html">Bac Littéraires</a></li>
-            <li><a href="bac-t.html">Bac Technique</a></li> 
-            <li><a href="bac-g.html">Bac Gestion</a></li>
-            <li><a href="bac-étrangers.html">Bac Étrangers </a></li>
-          </ul>
-        </li>
-       <li>
-          <button>Exercices ▾</button>
-          <ul>
-            <li><a href="eprimaire.html">Primaire</a></li>
-            <li><a href="ecollege.html">Collège</a></li>
-            <li><a href="elycee.html">Lycée</a></li>
-          </ul>
-           <li><a href="informatique.html">Informatique</a></li>
+
+<!-- ========== HEADER ========== -->
+<header>
+  <img src="Black Illustrated School Logo_20250915_033236_0000.png" alt="Logo Xam Xam">
+
+  <div class="burger" id="burger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav">
+    <ul>
+      <li><a href="index.html" class="active">Accueil</a></li>
+
+      <li class="dropdown">
+        <button class="drop-btn">Cours ▾</button>
+        <ul class="submenu">
+          <li><a href="ccollege.html">Collège</a></li>
+          <li><a href="clycée.html">Lycée</a></li>
         </ul>
       </li>
-    </nav>
-  </header> 
- </div>
 
-  <!-- HERO -->
-<div class="hero">
-  <video autoplay muted loop class="video-bg">
+      <li class="dropdown">
+        <button class="drop-btn">Devoirs ▾</button>
+        <ul class="submenu">
+          <li><a href="evcollege.html">Collège</a></li>
+          <li><a href="evlycee.html">Lycée</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <button class="drop-btn">Bac ▾</button>
+        <ul class="submenu">
+          <li><a href="bac-s.html">Bac Scientifiques</a></li>
+          <li><a href="bac-l.html">Bac Littéraires</a></li>
+          <li><a href="bac-t.html">Bac Technique</a></li>
+          <li><a href="bac-g.html">Bac Gestion</a></li>
+          <li><a href="bac-étrangers.html">Bac Étrangers</a></li>
+        </ul>
+      </li>
+
+      <li class="dropdown">
+        <button class="drop-btn">Exercices ▾</button>
+        <ul class="submenu">
+          <li><a href="eprimaire.html">Primaire</a></li>
+          <li><a href="ecollege.html">Collège</a></li>
+          <li><a href="elycee.html">Lycée</a></li>
+        </ul>
+      </li>
+
+      <li><a href="informatique.html">Informatique</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <video autoplay muted loop playsinline class="video-bg">
     <source src="Black Illustrated School Logo.mp4" type="video/mp4">
   </video>
   <div class="hero-content">
-    <h1></h1>
-    <p></p>
+    <h1>Bienvenue sur Xam Xam</h1>
+    <p>Votre plateforme éducative complète pour réussir vos études</p>
+    <div class="cta-buttons">
+      <a href="#features" class="btn btn-primary">Découvrir</a>
+      <a href="ccollege.html" class="btn btn-secondary">Commencer</a>
+    </div>
   </div>
-</div>
-<pdf src="../pdf/main.pdf"></pdf>
+</section>
 
-   <!-- FOOTER -->
-  <footer>
-    © 2025 Xam Xam - Créé par Serigne Mor Gueye (MOR.TECH)
-    </footer>
-    </body>
-     </html>
+<!-- ========== FEATURES ========== -->
+<section class="features" id="features">
+  <div class="container">
+    <h2 class="section-title">Nos Services</h2>
+    <p class="section-subtitle">Accédez à une large gamme de ressources éducatives pour tous les niveaux</p>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <h3>Cours Complets</h3>
+        <p>Accédez à des cours détaillés pour le collège et le lycée, couvrant tous les programmes officiels.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <h3>Devoirs & Évaluations</h3>
+        <p>Entraînez-vous avec des devoirs surveillés et des évaluations pour tous les niveaux.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">🎓</div>
+        <h3>Préparation au Bac</h3>
+        <p>Ressources complètes pour toutes les séries : S, L, T, G et bacs étrangers.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">✏️</div>
+        <h3>Exercices Pratiques</h3>
+        <p>Des milliers d'exercices corrigés pour le primaire, collège et lycée.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">💻</div>
+        <h3>Informatique</h3>
+        <p>Ressources et cours d'informatique pour développer vos compétences numériques.</p>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">📖</div>
+        <h3>Ressources Multidisciplinaires</h3>
+        <p>Maths, Physique, SVT, Français, Histoire-Géo, Philosophie et bien plus encore.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- ========== JS ========== -->
+<script>
+  const burger = document.getElementById("burger");
+  const nav = document.getElementById("nav");
+
+  burger.addEventListener("click", () => {
+    nav.classList.toggle("active");
+    burger.classList.toggle("active");
+  });
+
+  document.querySelectorAll(".drop-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      btn.nextElementSibling.classList.toggle("show");
+    });
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Header scroll effect
+  let lastScroll = 0;
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    if (currentScroll > 100) {
+      document.querySelector('header').style.boxShadow = '0 6px 30px rgba(0, 0, 0, 0.15)';
+    } else {
+      document.querySelector('header').style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+    }
+    lastScroll = currentScroll;
+  });
+</script>
+
+</body>
+</html>
